@@ -6,6 +6,42 @@
     <title>Code Wifi - Cadastro</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1014560851153314");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1014560851153314&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
   </head>
   <body>
     <div class="container">
@@ -159,11 +195,19 @@
             <input type="radio" name="vencimento" value="20" /> 20
           </label>
         </div>
-
+        <label class="checkbox-lgpd">
+          <input type="checkbox" required />
+          Autorizo o uso dos meus dados para contato e contratação dos serviços.
+        </label>
         <button type="submit">ENVIAR CADASTRO</button>
       </form>
     </div>
-
+    <footer>
+      <p>
+        Seus dados são utilizados apenas para contato e contratação dos serviços
+        da Code Wifi.
+      </p>
+    </footer>
     <script>
       document
         .getElementById("cadastroForm")
@@ -208,8 +252,14 @@
 
 *PLANO:* ${plano}%0A
 *VENCIMENTO:* ${vencimento}`;
+          fbq("track", "Lead");
 
-          window.open(`https://wa.me/5531984981427?text=${mensagem}`, "_blank");
+          setTimeout(() => {
+            window.open(
+              `https://wa.me/5531984981427?text=${mensagem}`,
+              "_blank"
+            );
+          }, 800);
         });
     </script>
   </body>
